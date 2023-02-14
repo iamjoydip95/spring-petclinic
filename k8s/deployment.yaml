@@ -12,10 +12,10 @@ spec:
   template:
     metadata:
       labels:
-        app: retail-service
+        app:  petclinicclus
     spec:
       containers:
-        - name: petimage
+        - name: petclinicclus
           image: skumarjira/petimage
           ports:
-            - containerPort: 2020
+            - containerPort: 8080

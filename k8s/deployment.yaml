@@ -3,16 +3,16 @@ apiVersion: apps/v1
 metadata:
   name: mydeployment
   labels:
-    app: petshop
+    app: mydeployment
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: petshop
+      app: mydeployment
   template:
     metadata:
       labels:
-        app:  petshop
+        app: mydeployment
     spec:
       containers:
         - name: mycontainer1

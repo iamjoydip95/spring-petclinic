@@ -3,19 +3,19 @@ apiVersion: apps/v1
 metadata:
   name: mydeployment
   labels:
-    app: mydeployment
+    app: petshop
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: mydeployment
+      app: petshop
   template:
     metadata:
       labels:
-        app:  mydeployment
+        app:  petshop
     spec:
       containers:
-        - name: mycontainer
+        - name: mycontainer1
           image: skumarjira/petshopimg
           ports:
             - containerPort: 8080

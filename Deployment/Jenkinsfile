@@ -28,14 +28,14 @@ stage('Load Docker Image'){
 
 if (isUnix()) {
 
-sh "minikube image load skumarjira/petimage"
+sh "minikube image load petclinicclus"
 } else {
 
-bat(/minikube image load skumarjira/petimage/)
+bat(/minikube image load petclinicclus/)
 }
 
 }
-stage('Kubernetes Pod'){
+stage('Kubernetes deployment'){
 
 if (isUnix()) {
 

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: petshop
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: petshop
@@ -16,6 +16,8 @@ spec:
     spec:
       containers:
         - name: mycontainer1
-          image: skumarjira/petshopimg
+          image: skumarjira/petimage
           ports:
             - containerPort: 8080
+
+

@@ -28,10 +28,10 @@ stage('Load Docker Image'){
 
 if (isUnix()) {
 
-sh "minikube image load petshopimg"
+sh "minikube image load mycontainer1"
 } else {
 
-bat(/minikube image load petshopimg/)
+bat(/minikube image load mycontainer1/)
 }
 
 }

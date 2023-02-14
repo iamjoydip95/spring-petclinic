@@ -1,0 +1,51 @@
+node {
+      def mvnHome
+    
+    
+    
+
+   
+  
+        stage('Prepare') {
+            
+              git url: 'https://github.com/Skumarcibm/spring-petclinic.git', branch:'main'
+              mvnHome = tool 'mvn' 
+            
+        }
+        
+        stage('Build') {
+           
+            if(isUnix()) {
+                sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+              }
+              else {
+              bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+              }
+            
+        }
+        
+stage('Load Docker Image'){
+
+if (isUnix()) {
+
+sh "minikube image load retail-service"
+} else {
+
+bat(/minikube image load retail-service/)
+}
+
+}
+stage('Kubernetes Pod'){
+
+if (isUnix()) {
+
+sh "kubectl apply -f k8s/deployment.yaml"
+} 
+else {
+
+bat("kubectl apply -f k8s/deployment.yaml")
+}
+
+}
+    
+}

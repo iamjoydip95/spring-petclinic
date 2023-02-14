@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: petclinicclus
+  labels:
+    app: petclinicclus
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: petclinicclus
+  template:
+    metadata:
+      labels:
+        app: retail-service
+    spec:
+      containers:
+        - name: petimage
+          image: skumarjira/petimage
+          ports:
+            - containerPort: 2020

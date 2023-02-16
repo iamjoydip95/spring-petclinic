@@ -8,7 +8,7 @@ node {
   
         stage('Prepare') {
             
-              git url: 'https://github.com/Skumarcibm/spring-petclinic.git', branch:'main'
+              git url: 'https://github.com/iamjoydip95/spring-petclinic.git', branch:'main'
               mvnHome = tool 'mvn' 
             
         }
@@ -28,10 +28,10 @@ stage('Load Docker Image'){
 
 if (isUnix()) {
 
-sh "minikube image load mycontainer1"
+sh "minikube image load spring-petclinic-final"
 } else {
 
-bat(/minikube image load mycontainer1/)
+bat(/minikube image load spring-petclinic-final/)
 }
 
 }
